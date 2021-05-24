@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <label formArrayName="students" *ngFor="let student of studentsFormArray.controls; let i = index">
+        <hr>
+        <input type="checkbox" [formControlName]="i">
+        {{studentsData[i].title}} {{studentsData[i].Name}} {{studentsData[i].gender}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {{studentsData[i].email}}
+    </label>
+    <br>
+    <div *ngIf="!form.valid">At least one student must be selected</div>
+    <br>
+    <button [disabled]="!form.valid">Remove students</button>
+</form>
